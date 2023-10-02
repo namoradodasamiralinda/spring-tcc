@@ -1,0 +1,112 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+  <title>CRUD - Javascript</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">-->
+  <link rel="stylesheet" href="usu.css">
+  <script src="usu.js"></script>
+ 
+
+</head>
+<body>
+
+  <div class="container">
+   <div class="row">
+
+
+   <!-- <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css" rel="stylesheet">  --> 
+
+
+
+    <!-- FORM  -->	    
+    <div class="col-md-12">
+
+     <form class="form-horizontal" id="form-edit-client">
+      <fieldset>
+
+        <!-- Form Name -->
+        <legend>Usuario</legend>
+
+        <!-- Text input-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="client-name">Nome</label>  
+          <div class="col-md-4">
+            <input id="client-name" name="client-name" type="text" placeholder="Nome do Usuario" class="form-control input-md">
+            <span class="help-block">Nome completo ou customizado</span>  
+          </div>
+        </div>
+
+        <!-- Prepended text-->
+        <div class="form-group">
+          <label class="col-md-4 control-label" for="client-email">Email</label>
+          <div class="col-md-4">
+            <div class="input-group">
+              <span class="input-group-addon">@</span>
+              <input id="client-email" name="client-email" class="form-control" placeholder="seunome@gmail.com" type="text">
+            </div>
+            <p class="help-block">Email do Usuario</p>
+          </div>
+        </div>
+
+
+
+
+
+        <!-- Button -->
+        
+
+      </fieldset>
+    </form>
+    <div class="form-group">
+          <label class="col-md-4 control-label" for="btn-save"></label>
+          <div class="col-md-4" id="saveupdate">
+            <button id="btn-save" name="btn-save" class="btn btn-success" onclick="addClient()">Save</button>
+          </div>
+        </div>
+
+  </div> 
+
+
+
+
+  <!-- LIST -->
+  <div class=col-md-12>
+
+       <legend>Lista de Clientes</legend>
+
+     
+      <table class="table table-bordered table-condensed table-hover">
+        <thead>
+          <tr>
+            <td>Nome</td>
+            <th>Email</th>
+            <th>Ações</th>
+          </tr>
+
+        </thead>
+        <tbody id="form-list-client-body">
+
+        </tbody>
+      </table>
+    
+    
+  </div>
+
+
+  <br> 
+
+  <!-- view -->
+
+
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+ 
+</script>
+</body>
+</html>
