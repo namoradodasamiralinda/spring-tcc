@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Adicionar Plano - Administrator</title>
+  <link rel="stylesheet" href="Z:\back_end-olympuss\padaria3_fk\src\main\resources\static\css\plano.css">
+    
+  
+</head>
+<body>
+  <div class="container">
+    <h2>Adicionar Plano - Administrator</h2>
+    <form id="addPlanForm">
+      <div class="form-group">
+        <label for="planName">Nome do Plano:</label>
+        <input type="text" id="planName" required>
+      </div>
+      <div class="form-group">
+        <label for="planPrice">Valor:</label>
+        <input type="number" id="planPrice" step="0.01" required>
+      </div>
+      <div class="form-group">
+        <label for="planDuration">Tempo:</label>
+        <input type="number" id="planDuration" required>
+      </div>
+      <div class="form-group">
+        <button type="submit">Adicionar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('addPlanForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const planName = document.getElementById('planName').value;
+      const planPrice = parseFloat(document.getElementById('planPrice').value);
+      const planDuration = parseInt(document.getElementById('planDuration').value);
+
+      // You can add further logic here to handle the form submission, such as sending the data to a server using fetch/axios.
+
+      // For this example, we'll just log the values to the console.
+      console.log('Plan Name:', planName);
+      console.log('Price:', planPrice);
+      console.log('Duration:', planDuration);
+
+      // Optionally, you can clear the form after submission.
+      document.getElementById('addPlanForm').reset();
+    });
+  </script>
+</body>
+</html>
