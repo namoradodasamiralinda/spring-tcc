@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar</title>
+  <link rel="stylesheet" href="/css/plano.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Planos</span>
+      <button onclick="openModal()" id="new">Incluir</i></button>
+    </div>
+    
+
+    <div class="divTable">
+      <table>
+        <thead>
+
+         <tr>
+                       
+            <th>Nome</th>
+            <th>Categoria</th>
+			<th>Preço</th>
+                           
+         </tr>
+        </thead>
+
+       <tbody id="data">
+                    
+      <tr th:each="plano : ${PLANO}" class="text-center">
+	  <td th:text="${PLANO.NOME}"></td>
+	  <td th:text="${PLANO.DESCRICAO}"></td>
+	  <td th:text="${PLANO.PRECO_MENSAL}"></td>
+
+	  <td>
+	          <a th:href="@{/api/plano/ver/{id}(id=${plano.id})}"  
+	            th:class="'btn btn-sm '+${plano.NIVEL_ACESSO == 'ATIVO' ? 'btn-primary' : 'btn-warning'}"> Ver </a> 
+	            </td>
+	            </tr>
+                    
+      </tbody>
+
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" th:field="*{NOME}"required />
+  
+          <label for="m-funcao">Categoria</label>
+          <input id="m-funcao" type="text" th:field="*{DESCRICAO}"required />
+  
+          <label for="m-salario">Preço</label>
+          <input id="m-salario" type="number" th:field="*{PRECO_MENSAL}"required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <script src="/js/plano.js"></script>
+</body>
+
+</html>
