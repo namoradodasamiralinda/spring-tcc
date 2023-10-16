@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/style4.css">
+
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+
+  <title>Lista Clientes</title>
+
+    <link rel="icon" type="imagens/png" href="/img/images/logo-icon.jpeg">
+
+</head>
+
+ 
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+
+      <span>Cadastro de Clientes</span>
+
+      <button onclick="openModal()" id="new">Incluir</button>
+
+    </div>
+
+    
+
+    <div class="modal-container">
+
+      <div class="modal">
+
+        <form action="#" th:action="@{/api/cliente/salvar}" th:object="${cliente}" method="post">
+
+          <label for="mnome">Nome</label>
+
+          <input id="mnome" type="text" th:field="*{NOME}" required />
+
+ 
+
+          <label for="mtelefone">Telefone</label>
+
+          <input id="mtelefone" type="text" th:field="*{TELEFONE}" required />
+
+          
+
+          <label for="mdatanasc">Data de nascimento</label>
+
+          <input id="mdatanasc" type="date" th:field="*{DATANASC}" required />
+
+ 
+
+          <label for="memail">Email</label>
+
+          <input id="memail" type="email" th:field="*{EMAIL}" required />
+
+  
+
+          <label for="msenha">Senha</label>
+
+          <input id="msenha" type="password" th:field="*{SENHA}" required />
+
+ 
+
+          <label for="mcodigo">CPF</label>
+
+          <input id="mcodigo" type="text" th:field="*{CPF}" required />
+
+ 
+
+			<span th:text="${serverMessage}"></span>
+
+		  <button type="submit">GRAVAR</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+ 
+
+ 
+
+    <div class="divTable">
+
+		<h1>Lista de Clientes</h1>
+
+		<table>
+
+			<thead>
+
+				<tr>
+
+					<th>ID</th>
+
+					<th>Nome</th>
+
+					<th>Email</th>
+
+					<th>Telefone</th>
+
+					<th>Data de Nascimento</th>
+
+					<th>CPF</th>
+
+					<th>Editar</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr th:each="cliente : ${clientes}">
+
+					<td th:text="${cliente.id}"></td>
+
+					<td th:text="${usuarios.NOME_COMPLETO}"></td>
+
+					<td th:text="${usuarios.EMAIL}"></td>
+
+					<td th:text="${usuarios.TELEFONE}"></td>
+
+					<td th:text="${usuarios.DATA_NASC}"></td>
+
+					<td th:text="${usuarios.CPF}"></td>
+
+					<td>
+
+						<a th:href="@{/api/cliente/ver/{id}(id=${cliente.id})}"  class="botao_ver" style="background-color: #3939E2; color:#fff";>Editar </a>
+
+					</td>
+
+				</tr>
+
+			</tbody>
+
+		</table>
+
+		<div style="display:flex; justify-content: flex-end; margin: auto 12px; ">
+
+					<button id="new"><a  th:href="@{/api/carro/lista}" style="background-color: #3939E2; color:#fff; text-decoration: none;" >Voltar </a></button>
+
+				</div>
+
+    </div>
+
+ 
+
+    
+
+  </div>
+
+  <script src="/js/script.js"></script>
+
+</body>
+
+ 
+
+</html>
