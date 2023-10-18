@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/css/style4.css">
+
+  <link href="https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css" rel="stylesheet">
+
+  <title>Lista Clientes</title>
+
+    <link rel="icon" type="imagens/png" href="/img/images/logo-icon.jpeg">
+
+</head>
+
+ 
+
+<body>
+
+  <div class="container">
+
+    <div class="header">
+
+      <span>Cadastro de Clientes</span>
+
+      <button onclick="openModal()" id="new">Incluir</button>
+
+    </div>
+
+    
+
+    <div class="modal-container">
+
+      <div class="modal">
+
+        <form action="#" th:action="@{/usuario/gravar}" th:object="${usuario}" method="post">
+
+          <label for="mnome">Nome</label>
+
+          <input id="mnome" type="text" th:field="*{NOME_COMPLETO}" required />
+          
+          
+          <label for="memail">Email</label>
+
+          <input id="memail" type="email" th:field="*{EMAIL}" required />
+          
+          
+
+          <label for="msenha">Senha</label>
+
+          <input id="msenha" type="password" th:field="*{SENHA}" required />
+
+ 
+
+
+ 
+
+          <label for="mtelefone">Telefone</label>
+
+          <input id="mtelefone" type="text" th:field="*{TELEFONE}" required />
+
+          
+
+          <label for="mdatanasc">Data de nascimento</label>
+
+          <input id="mdatanasc" type="date" th:field="*{DATA_NASC}" required />
+
+ 
+
+
+  
+
+          <label for="mplano" class="form-label">Tipos de Plano:</label>
+		  
+		  
+		  <select id="inputcat" th:field="*{plano}" onChange="onstatechange(this)" style="width:100%;">
+		  <option value="0">Selecione o Plano</option>
+		   
+		  <option th:each="plano : ${planos}" th:text="${plano.NOME}" th:value="${plano.id}"></option>
+		  
+		  	  </select>
+ 
+		  
+		  
+		  
+		   <label for="macesso" class="form-label">Nivel de Acesso:</label>
+		  
+
+                    <select class="form-select" id="inputCat" th:field="*{NIVEL_ACESSO}" onChange="onstatechange(this)" style="width:100%;">	
+                    	<option value=0></option>			      
+						<option value="ADMIN">ADMIN</option>
+					    <option value="USER">USER</option> 
+					    <option value="TEC">TEC</option>
+			
+					</select>
+					
+	
+ 
+
+
+ 
+
+			<span th:text="${serverMessage}"></span>
+
+		  <button type="submit">Salvar</button>
+
+        </form>
+
+      </div>
+
+    </div>
+
+ 
+
+ 
+
+    <div class="divTable">
+
+		<h1>Lista de Usuarios:</h1>
+
+		<table>
+
+			<thead>
+
+				<tr>
+
+					<th>ID</th>
+
+					<th>Nome</th>
+
+					<th>Email</th>
+					
+					<th>Senha</th>
+
+					<th>Telefone</th>
+
+					<th>Data de Nascimento</th>
+					
+					<th>Plano</th>
+					
+					<th>Nivel de Acesso</th>
+
+
+
+
+					
+
+					<th>Editar</th>
+
+				</tr>
+
+			</thead>
+
+			<tbody>
+
+				<tr th:each="usuario: ${usuarios}">
+
+					<td th:text="${usuario.id}"></td>
+
+					<td th:text="${usuario.NOME_COMPLETO}"></td>
+
+					<td th:text="${usuario.EMAIL}"></td>
+					
+					<td th:text="${usuario.SENHA}"></td>
+
+					<td th:text="${usuario.TELEFONE}"></td>
+
+					<td th:text="${usuario.DATA_NASC}"></td>
+					
+					<td th:text="${usuario.plano.NOME}"></td>
+					
+					<td th:text="${usuario.NIVEL_ACESSO}"></td>
+
+				
+
+					<td>
+
+						<a th:href="@{/usuario/ver/{id}(id=${usuario.id})}"  class="botao_ver" style="background-color: rgb(0, 0, 0); color:#fff";>Editar </a>
+
+					</td>
+
+				</tr>
+
+			</tbody>s
+
+		</table>
+
+		<div style="display:flex; justify-content: flex-end; margin: auto 12px; ">
+
+					<button id="new"><a  th:href="@{/api/inicio}" style="background-color: rgb(0, 0, 0); color:#fff; text-decoration: none;" >Voltar </a></button>
+
+				</div>
+
+    </div>
+
+ 
+
+    
+
+  </div>
+
+  <script src="/js/script.js"></script>
+
+</body>
+
+ 
+
+</html>
