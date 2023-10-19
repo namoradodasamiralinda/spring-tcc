@@ -1,0 +1,142 @@
+<!doctype html>
+
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+ 
+
+<head>
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Lista de Funcionários</title>
+
+	
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+
+		integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+		
+
+	<link rel="stylesheet" href="/css/page_edit.css">
+
+	  <title>Editar Clientes</title>
+
+  <link rel="icon" type="imagens/png" href="/img/images/logo-icon.jpeg">
+
+</head>
+
+ 
+
+<body>
+
+	<div class="container">
+
+	
+
+	<div class="header">
+
+      <span>Editar Cadastro de Clientes</span></br>
+
+     
+
+    </div>
+
+ 
+
+      <div class="main">
+
+        <form action="#" th:action="@{/usuario/editar/{id}(id=*{id})}" th:object="${usuario}" method="post">
+
+        	<label for="mid">ID</label>
+
+          	<input id="mid" type="text" th:field="*{id}" required  readonly /></br>
+
+          
+
+          <label for="mnome">Nome</label>
+
+          <input id="mnome" type="text" th:field="*{NOME_COMPLETO}" required /></br>
+
+          
+
+          <label for="mdatanasc">Data de nascimento</label>
+
+          <input id="mdatanasc" type="date" th:field="*{DATA_NASC}" required />
+
+  
+
+          <label for="mtelefone">Telefone</label>
+
+          <input id="mtelefone" type="text" th:field="*{TELEFONE}" required /></br>          
+
+ 
+
+          <label for="memail">Email</label>
+
+          <input id="memail" type="email" th:field="*{EMAIL}" required /></br>
+
+          
+
+          <label for="msenha">Senha</label>
+
+          <input id="msenha" type="password" th:field="*{SENHA}" required /></br>
+
+
+              <label for="macesso" class="form-label">Nivel de Acesso:</label>
+		  
+
+                    <select class="form-select" id="inputCat" th:field="*{NIVEL_ACESSO}" onChange="onstatechange(this)" style="width:100%;">	
+                    	<option value=0></option>			      
+						<option value="ADMIN">ADMIN</option>
+					    <option value="USER">USER</option> 
+					    <option value="TEC">TEC</option>
+			
+					</select>
+          
+  
+  <select id="inputcat" th:field="*{plano}" onChange="onstatechange(this)" style="width:100%;">
+		  <option value="0">Selecione o Plano</option>
+		   
+		  <option th:each="plano : ${planos}" th:text="${plano.NOME}" th:value="${plano.id}"></option>
+		  
+		  	  </select>
+
+       
+ 
+
+		<span th:text="${serverMessage}"></span>
+
+	
+
+		<button type="submit">EDITAR</button>
+
+		
+
+		<a th:href="@{/usuario/listacliente}">VOLTAR</a>
+
+        </form>
+
+      </div>
+
+  
+
+	
+
+    </div>
+
+	<script src="/js/script.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+
+		integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+
+		crossorigin="anonymous"></script>
+
+</body>
+
+ 
+
+</html>

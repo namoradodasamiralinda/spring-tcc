@@ -1,0 +1,36 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.frame {
+    border: 10px solid #fff; /* Borda branca da moldura */
+    border-radius: 20px; /* Borda arredondada da moldura */
+    margin: 20px;
+    height: calc(100% - 40px); /* Ajuste de altura para compensar a moldura */
+    background-color: #111; /* Cor de fundo preto */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    text-align: center;
+}
+
+.custom-button {
+    background-color: #111; /* Botão com fundo preto */
+    color: #fff; /* Texto branco */
+    border: 4px solid #fff; /* Moldura branca */
+    padding: 15px 30px;
+    font-size: 18px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s;
+    font-weight: bold;
+}
+
+.custom-button:hover {
+    background-color: #222; /* Botão mais escuro ao passar o mouse */
+}
